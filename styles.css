@@ -1,0 +1,223 @@
+:root {
+    --primary: #ff4d6d;
+    --secondary: #ff758f;
+    --glass: rgba(255, 255, 255, 0.95);
+}
+
+/* 1. Layout Base */
+body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #ff85a1 0%, #ffafcc 100%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: flex-start; 
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* 2. Main Wrapper */
+.container {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 500px; 
+    padding: 40px 25px;
+    margin: 40px auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    z-index: 10;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* 3. Multi-Step Logic */
+.content-step {
+    width: 100%;
+    display: none;
+    animation: fadeIn 0.8s ease;
+}
+
+/* 4. Hug Section */
+.hug-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0 25px 0;
+}
+
+/* 5. The Letter Box */
+.letter-content {
+    width: 100%;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: left;
+    margin: 25px 0;
+    box-sizing: border-box; 
+    min-height: 300px;
+}
+
+.letter-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+/* 6. Password & Lock Screen */
+#password-screen, #lock-screen {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#secret-code {
+    padding: 12px;
+    width: 80%;
+    border: 2px solid var(--primary);
+    border-radius: 25px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* 7. Scratch Card */
+.scratch-container {
+    position: relative;
+    width: 100%; 
+    height: 110px;
+    margin: 20px 0;
+    background: #fff;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 2px solid var(--secondary);
+    cursor: pointer;
+}
+
+#scratch-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #bdc3c7;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    z-index: 2;
+    transition: opacity 0.8s ease;
+}
+
+/* 8. Gallery - RESTORED TO LARGE VERTICAL */
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: auto; /* Natural height makes them bigger */
+    border-radius: 15px;
+    display: block;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* 9. Love Generator */
+.love-generator {
+    background: #fff0f3;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px dashed var(--primary);
+    margin: 20px 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 10. Buttons & Interactions */
+.btn-hug, .btn-love, .btn-next {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+    transition: transform 0.2s, background 0.3s;
+    
+    /* ADDED: This ensures buttons are centered and don't stretch */
+    display: block;
+    margin: 20px auto; 
+    width: fit-content;
+}
+
+.btn-love {
+    background: var(--secondary);
+    padding: 10px 25px;
+    border-radius: 20px;
+    margin: 10px 0; /* Override the auto margin for the generator box */
+}
+
+/* UPDATED: Next button now matches Hug button color and centering */
+.btn-next {
+    background-color: var(--primary);
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+}
+
+.btn-hug:active, .btn-love:active, .btn-next:active {
+    transform: scale(0.95);
+}
+
+/* 11. Animations & Decor */
+.bg-heart {
+    position: fixed;
+    bottom: -10vh;
+    color: rgba(255, 255, 255, 0.5);
+    animation: floatUp 6s linear infinite;
+    z-index: 0;
+    pointer-events: none; 
+}
+
+@keyframes floatUp { 
+    to { transform: translateY(-120vh) rotate(360deg); } 
+}
+
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(10px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
+.music-control { 
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    background: white; 
+    padding: 10px; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    z-index: 100; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+}
+
+#main-content {
+    width: 100%;
+}
